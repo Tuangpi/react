@@ -54,6 +54,7 @@ const App = () => (
       list={CategoryList}
       create={CategoryCreate}
       edit={CategoryEdit}
+      icon={CategoryIcon}
       recordRepresentation="name"
     />
   </Admin>
