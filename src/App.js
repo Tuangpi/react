@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Admin, Resource, defaultTheme, ToggleThemeButton } from "react-admin";
+import { Admin, Resource } from "react-admin";
 import {
   FirebaseAuthProvider,
   FirebaseDataProvider,
