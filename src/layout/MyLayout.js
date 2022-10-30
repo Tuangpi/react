@@ -1,4 +1,4 @@
-import { defaultTheme, Layout, AppBar, ToggleThemeButton  } from 'react-admin';
+import { Layout, AppBar, ToggleThemeButton  } from 'react-admin';
 import { createTheme, Box, Typography } from '@mui/material';
 import indigo from '@mui/material/colors/indigo';
 import pink from '@mui/material/colors/blueGrey';
@@ -8,7 +8,6 @@ const darkTheme = createTheme({
     palette: { mode: 'dark' },
 });
 const mytheme = {
-    ...defaultTheme,
     palette: {
         primary: indigo,
         secondary: pink,

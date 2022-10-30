@@ -1,0 +1,46 @@
+[debug] [2022-10-30T15:28:29.606Z] ----------------------------------------------------------------------
+[debug] [2022-10-30T15:28:29.613Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-10-30T15:28:29.615Z] CLI Version:   11.15.0
+[debug] [2022-10-30T15:28:29.615Z] Platform:      win32
+[debug] [2022-10-30T15:28:29.615Z] Node Version:  v16.18.0
+[debug] [2022-10-30T15:28:29.619Z] Time:          Sun Oct 30 2022 21:58:29 GMT+0630 (Myanmar Time)
+[debug] [2022-10-30T15:28:29.620Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-30T15:28:29.758Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-30T15:28:29.759Z] > authorizing via signed-in user (singkhantuang97@gmail.com)
+[debug] [2022-10-30T15:28:29.759Z] [iam] checking project react-tutorial-df3dd for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-10-30T15:28:29.764Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-tutorial-df3dd:testIamPermissions [none]
+[debug] [2022-10-30T15:28:29.765Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-tutorial-df3dd:testIamPermissions x-goog-quota-user=projects/react-tutorial-df3dd
+[debug] [2022-10-30T15:28:29.765Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-tutorial-df3dd:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-10-30T15:28:40.969Z] [iam] error while checking permissions, command may fail: FirebaseError: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/react-tutorial-df3dd:testIamPermissions
+[debug] [2022-10-30T15:28:40.976Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-tutorial-df3dd [none]
+[debug] [2022-10-30T15:28:52.139Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects/react-tutorial-df3dd
+[debug] [2022-10-30T15:28:52.151Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects/react-tutorial-df3dd
+    at RetryOperation._fn (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:242:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project react-tutorial-df3dd. Please make sure the project exists and your account has permission to access it.
+[debug] [2022-10-30T15:29:07.941Z] ----------------------------------------------------------------------
+[debug] [2022-10-30T15:29:07.944Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-10-30T15:29:07.945Z] CLI Version:   11.15.0
+[debug] [2022-10-30T15:29:07.946Z] Platform:      win32
+[debug] [2022-10-30T15:29:07.946Z] Node Version:  v16.18.0
+[debug] [2022-10-30T15:29:07.947Z] Time:          Sun Oct 30 2022 21:59:07 GMT+0630 (Myanmar Time)
+[debug] [2022-10-30T15:29:07.948Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-30T15:29:08.131Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-30T15:29:08.133Z] > authorizing via signed-in user (singkhantuang97@gmail.com)
+[debug] [2022-10-30T15:29:08.133Z] [iam] checking project react-tutorial-df3dd for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-10-30T15:29:08.140Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-tutorial-df3dd:testIamPermissions [none]
+[debug] [2022-10-30T15:29:08.141Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-tutorial-df3dd:testIamPermissions x-goog-quota-user=projects/react-tutorial-df3dd
+[debug] [2022-10-30T15:29:08.141Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-tutorial-df3dd:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-10-30T15:29:17.710Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-tutorial-df3dd:testIamPermissions 200
+[debug] [2022-10-30T15:29:17.710Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/react-tutorial-df3dd:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-10-30T15:29:17.712Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-tutorial-df3dd [none]
+[debug] [2022-10-30T15:29:47.729Z] Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects/react-tutorial-df3dd
+[debug] [2022-10-30T15:29:52.750Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.
