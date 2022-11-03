@@ -12,44 +12,56 @@ import {
   DeleteButton,
   TextInput,
   Create,
-  ReferenceInput
+  ReferenceInput,
+  DateField,
+  SimpleShowLayout,
+  Show,
+  ShowButton,
 } from "react-admin";
 
-const ProductList = (props) => {
+const ProductList = () => {
   return (
-    <List filters={postFilters} {...props}>
+    <List>
       <Datagrid>
         <ReferenceField source="category_id" reference="categories" />
         <TextField source="name" />
         <NumberField source="price" />
         <NumberField source="rating" />
+        <ShowButton basePath="/products" />
         <EditButton basePath="/products" />
         <DeleteButton basePath="/products" />
       </Datagrid>
     </List>
   );
 };
+
 const ProductShow = () => (
-  <List>
-    <Datagrid rowClick="edit">
+  <Show>
+    <SimpleShowLayout>
       <TextField source="id" />
       <TextField source="name" />
-    </Datagrid>
-  </List>
+      <NumberField source="price" />
+      <NumberField source="rating" />
+      <DateField label="Create Date" source="createdate" />
+      <DateField label="Update Date" source="lastdate" />
+      <TextField label="Create By" source="createdby" />
+    </SimpleShowLayout>
+  </Show>
 );
-const ProductCreate = (props) => (
-    <Create title="Create a product" {...props}>
-      <SimpleForm>
-        <ReferenceInput source="category_id" reference="categories" />
-        <TextInput source="name" />
-        <NumberInput source="price" />
-        <NumberInput source="rating" />
-      </SimpleForm>
-    </Create>
-  );
 
-const ProductEdit = (props) => (
-  <Edit title='Edit a product' {...props}>
+const ProductCreate = () => (
+  <Create title="Create a product">
+    <SimpleForm>
+      <ReferenceInput source="category_id" reference="categories" />
+      <TextInput source="name" />
+      <NumberInput source="price" />
+      <NumberInput source="rating" />
+    </SimpleForm>
+  </Create>
+);
+
+const ProductEdit = () => (
+  <Edit title="Edit a product">
     <SimpleForm>
       <ReferenceInput source="category_id" reference="categories" />
       <TextInput disabled source="id" />
@@ -59,10 +71,5 @@ const ProductEdit = (props) => (
     </SimpleForm>
   </Edit>
 );
-
-const postFilters = [
-  <TextInput source="q" label="Search" alwaysOn />,
-  <ReferenceInput source="category_id" label="Category" reference="categories" />,
-];
 
 export { ProductEdit, ProductCreate, ProductList, ProductShow };

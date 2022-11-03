@@ -1,61 +1,104 @@
 import * as React from "react";
-import { Admin, Resource } from "react-admin";
+import { Admin, Resource, Login, CustomRoutes } from "react-admin";
+import { Route } from "react-router";
+import { dataProvider, authProvider, auth } from "./firebase";
+import { UserList, UserShow } from "./component/users";
+import { UserCreate } from "./component/Users/UserCreate";
 import {
-  FirebaseAuthProvider,
-  FirebaseDataProvider,
-} from "react-admin-firebase";
+  CustomerList,
+  CustomerCreate,
+  CustomerEdit,
+  CustomerShow,
+} from "./component/Customers/customers";
 import {
-  ProductList,
-  ProductShow,
-  ProductCreate,
-  ProductEdit,
-} from "./component/products/products";
-import {
-  CategoryList,
-  CategoryShow,
-  CategoryCreate,
-  CategoryEdit,
-} from "./component/categories/categories";
-import Dashboard from "./Dashboard";
-import { MyLayout } from "./layout/MyLayout";
-import CategoryIcon from "@mui/icons-material/Category";
-import ProductIcon from "@mui/icons-material/List";
+  BusinessList,
+  BusinessCreate,
+  BusinessEdit,
+  BusinessShow,
+} from "./component/businesses";
+import { userInputs } from "./formSource";
+import Dashboard from "./layout/Dashboard";
+import Mylayout from "./layout/MyLayout";
+import CustomerIcon from "@mui/icons-material/VerifiedUser";
+import BusinessIcon from "@mui/icons-material/List";
+import { blueGrey, teal, pink } from "@mui/material/colors";
+import { Fetch } from "./component/not use/profile";
+import { UserUpdate } from "./component/Users/UserUpdate";
 
-const config = {
-  apiKey: "AIzaSyDZK5r2gQyOP0lLurl_ChOGQjU03v6ybSY",
-  authDomain: "react-tutorial-df3dd.firebaseapp.com",
-  databaseURL: "react-tutorial-df3dd.firebasedatabase.app",
-  projectId: "react-tutorial-df3dd",
-  storageBucket: "react-tutorial-df3dd.appspot.com",
-  messagingSenderId: "300345005285",
+const mytheme = {
+  palette: {
+    primary: teal,
+    secondary: blueGrey,
+    error: pink,
+    contrastThreshold: 3,
+    tonalOffset: 0.2,
+  },
+  typography: {
+    // Use the system font instead of the default Roboto font.
+    fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Arial",
+      "sans-serif",
+    ].join(","),
+  },
 };
-const authProvider = FirebaseAuthProvider(config);
-const dataProvider = FirebaseDataProvider(config);
+
+const MyLoginPage = () => (
+  <Login
+    // A random image that changes everyday
+    backgroundImage="https://source.unsplash.com/random"
+  />
+);
 
 const App = () => (
   <Admin
-    disableTelemetry
-    layout={MyLayout}
+    loginPage={MyLoginPage}
     title="React Tutorial Admin"
     dashboard={Dashboard}
-    dataProvider={dataProvider}
     authProvider={authProvider}
+    dataProvider={dataProvider}
+    layout={Mylayout}
+    theme={mytheme}
+    requireAuth
   >
+    <Resource name="users" list={UserList} create show={UserShow} requireAuth recordRepresentation="name" />
+    {/* {console.log(dataProvider.getOne("users", { id: auth.currentUser.uid }).then(response => console.log(response.data.id)))} */}
+    <CustomRoutes>
+      <Route path="/users/create" element={<UserCreate />} />
+      <Route path="/users/update" element={<UserUpdate />} />
+      {/* <Route
+        path="/users/list"
+        element={<Profile inputs={userInputs} title="Add New User" />}
+      /> */}
+      {/* <Route
+        path="/users/create"
+        element={<Profile inputs={userInputs} title="Add New User" />}
+      /> */}
+      <Route path="/users/create" element={<UserCreate />} />
+      <Route path="/my-profile" element={<UserUpdate />} />
+      <Route path="/mydoc" element={<Fetch />} />
+    </CustomRoutes>
     <Resource
-      name="products"
-      list={ProductList}
-      create={ProductCreate}
-      edit={ProductEdit}
-      icon={ProductIcon}
+      name="businesses"
+      list={BusinessList}
+      create={BusinessCreate}
+      edit={BusinessEdit}
+      show={BusinessShow}
+      icon={BusinessIcon}
+      recordRepresentation="name"
       requireAuth
     />
     <Resource
-      name="categories"
-      list={CategoryList}
-      create={CategoryCreate}
-      edit={CategoryEdit}
-      icon={CategoryIcon}
+      name="customers"
+      list={CustomerList}
+      create={CustomerCreate}
+      edit={CustomerEdit}
+      show={CustomerShow}
+      icon={CustomerIcon}
       recordRepresentation="name"
+      requireAuth
     />
   </Admin>
 );
