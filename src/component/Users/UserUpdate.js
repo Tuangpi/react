@@ -130,7 +130,7 @@ export const UserUpdate = () => {
           </div>
           <div className="input-box">
             <span className="details">Password</span>
-            <input type="password" placeholder="Enter your password" required />
+            <input type="password" placeholder="Change your password" required />
           </div>
         </div>
         <div className="button">
