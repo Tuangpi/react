@@ -5,11 +5,11 @@ import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { updatePassword } from "firebase/auth";
 import { useEffect, useState } from "react";
+import "./style.css";
 
 export const UserUpdate = () => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
-  const [businessData, setBusinessData] = useState([{ name: "" }]);
   const [per, setPerc] = useState(null);
   const [editdata, setEditData] = useState({
     email: "",
@@ -86,7 +86,7 @@ export const UserUpdate = () => {
     }
   };
   return (
-    <div>
+    <div className="container">
       <img
         src={
           file
@@ -97,12 +97,45 @@ export const UserUpdate = () => {
         style={{ height: "120px" }}
       />
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="User Name" value={editdata.name} />
-        <input type="email" placeholder="Email" value={editdata.email} />
-        <input type="text" placeholder="Phone Number" value={editdata.phone} />
-        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-        <input type="password" placeholder="Change Your Password" />
-        <button>Submit</button>
+        <div className="user-details">
+          <div className="input-box">
+            <span className="details">User Name</span>
+            <input
+              type="text"
+              placeholder="Enter User Name"
+              value={editdata.name}
+              required
+            />
+          </div>
+          <div className="input-box">
+            <span className="details">Email</span>
+            <input
+              type="text"
+              placeholder="Enter Email"
+              value={editdata.email}
+              required
+            />
+          </div>
+          <div className="input-box">
+            <span className="details">Phone Number</span>
+            <input
+              type="text"
+              placeholder="Enter Phone Number"
+              value={editdata.phone}
+              required
+            />
+          </div>
+          <div>
+            <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+          </div>
+          <div className="input-box">
+            <span className="details">Password</span>
+            <input type="password" placeholder="Enter your password" required />
+          </div>
+        </div>
+        <div className="button">
+          <input type="submit" value="Submit" />
+        </div>
       </form>
     </div>
   );

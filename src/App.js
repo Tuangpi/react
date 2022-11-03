@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Admin, Resource, Login, CustomRoutes } from "react-admin";
 import { Route } from "react-router";
-import { dataProvider, authProvider, auth } from "./firebase";
+import { dataProvider, authProvider } from "./firebase";
 import { UserList, UserShow } from "./component/users";
 import { UserCreate } from "./component/Users/UserCreate";
+import { UserUpdate } from "./component/Users/UserUpdate";
 import {
   CustomerList,
   CustomerCreate,
@@ -15,15 +16,12 @@ import {
   BusinessCreate,
   BusinessEdit,
   BusinessShow,
-} from "./component/businesses";
-import { userInputs } from "./formSource";
+} from "./component/Businesses/businesses";
 import Dashboard from "./layout/Dashboard";
 import Mylayout from "./layout/MyLayout";
 import CustomerIcon from "@mui/icons-material/VerifiedUser";
 import BusinessIcon from "@mui/icons-material/List";
 import { blueGrey, teal, pink } from "@mui/material/colors";
-import { Fetch } from "./component/not use/profile";
-import { UserUpdate } from "./component/Users/UserUpdate";
 
 const mytheme = {
   palette: {
@@ -63,7 +61,14 @@ const App = () => (
     theme={mytheme}
     requireAuth
   >
-    <Resource name="users" list={UserList} create show={UserShow} requireAuth recordRepresentation="name" />
+    <Resource
+      name="users"
+      list={UserList}
+      create
+      show={UserShow}
+      requireAuth
+      recordRepresentation="name"
+    />
     {/* {console.log(dataProvider.getOne("users", { id: auth.currentUser.uid }).then(response => console.log(response.data.id)))} */}
     <CustomRoutes>
       <Route path="/users/create" element={<UserCreate />} />
@@ -78,7 +83,6 @@ const App = () => (
       /> */}
       <Route path="/users/create" element={<UserCreate />} />
       <Route path="/my-profile" element={<UserUpdate />} />
-      <Route path="/mydoc" element={<Fetch />} />
     </CustomRoutes>
     <Resource
       name="businesses"

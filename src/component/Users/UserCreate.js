@@ -5,6 +5,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
+import "./style.css";
 
 export const UserCreate = () => {
   const [file, setFile] = useState("");
@@ -12,7 +13,6 @@ export const UserCreate = () => {
   const [per, setPerc] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
-    let arr = [];
     const uploadFile = () => {
       const name = new Date().getTime() + file.name;
 
@@ -71,22 +71,42 @@ export const UserCreate = () => {
     }
   };
   return (
-    <div>
+    <div className="container">
       <img
         src={
           file
             ? URL.createObjectURL(file)
             : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
         }
-        alt="Profile Picture" style={{height: "120px"}}
+        alt="Profile Picture"
+        style={{ height: "120px" }}
       />
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="User Name" />
-        <input type="email" placeholder="Email" />
-        <input type="text" placeholder="Phone Number" />
-        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-        <input type="password" placeholder="Password" />
-        <button>Create User</button>
+        <div className="user-details">
+          <div className="input-box">
+            <span className="details">User Name</span>
+            <input type="text" placeholder="Enter User Name" required />
+          </div>
+          <div className="input-box">
+            <span className="details">Email</span>
+            <input type="text" placeholder="Enter Email" required />
+          </div>
+          <div className="input-box">
+            <span className="details">Phone Number</span>
+            <input type="text" placeholder="Enter Phone Number" required />
+          </div>
+          <div>
+            <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+          </div>
+          <div className="input-box">
+            <span className="details">Password</span>
+            <input type="password" placeholder="Enter your password" required />
+          </div>
+        </div>
+        <div className="button">
+          {/* <button>Create User</button> */}
+          <input type="submit" value="Create User" />
+        </div>
       </form>
     </div>
   );
