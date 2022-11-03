@@ -12,7 +12,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { createTheme, Box, Typography } from "@mui/material";
 import { teal, pink, blueGrey } from "@mui/material/colors";
-import { List, VerifiedUser, People, Label } from "@mui/icons-material";
+import { VerifiedUser, People, Label } from "@mui/icons-material";
 import Avatar from "@mui/material/Avatar";
 import SettingsIcon from "@mui/icons-material/Settings";
 
@@ -43,7 +43,6 @@ const MyMenu = () => (
   <Menu>
     <Menu.DashboardItem />
     <Menu.Item to="/users" primaryText="Users" leftIcon={<VerifiedUser />} />
-    <Menu.Item to="/products" primaryText="Product" leftIcon={<List />} />
     <Menu.Item to="/customers" primaryText="Customers" leftIcon={<People />} />
     <Menu.Item to="/businesses" primaryText="Business" leftIcon={<Label />} />
   </Menu>

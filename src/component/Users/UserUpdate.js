@@ -9,8 +9,10 @@ import "./style.css";
 
 export const UserUpdate = () => {
   const [file, setFile] = useState("");
-  const [data, setData] = useState({});
-  const [per, setPerc] = useState(null);
+  // const [data, setData] = useState({});
+  // const [per, setPerc] = useState(null);
+  const setData = ''; // this is for temporary
+  const setPerc = ""; // this is for temporary
   const [editdata, setEditData] = useState({
     email: "",
     name: "",
@@ -26,7 +28,6 @@ export const UserUpdate = () => {
       setEditData(docSnap.data());
     };
     mydata();
-    let arr = [];
     const uploadFile = () => {
       const name = new Date().getTime() + file.name;
 
@@ -93,8 +94,8 @@ export const UserUpdate = () => {
             ? URL.createObjectURL(file)
             : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
         }
-        alt="Profile Picture"
         style={{ height: "120px" }}
+        alt="profile"
       />
       <form onSubmit={handleSubmit}>
         <div className="user-details">

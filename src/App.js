@@ -22,6 +22,7 @@ import Mylayout from "./layout/MyLayout";
 import CustomerIcon from "@mui/icons-material/VerifiedUser";
 import BusinessIcon from "@mui/icons-material/List";
 import { blueGrey, teal, pink } from "@mui/material/colors";
+import { BrowserRouter } from "react-router-dom/dist";
 
 const mytheme = {
   palette: {
@@ -51,59 +52,61 @@ const MyLoginPage = () => (
 );
 
 const App = () => (
-  <Admin
-    loginPage={MyLoginPage}
-    title="React Tutorial Admin"
-    dashboard={Dashboard}
-    authProvider={authProvider}
-    dataProvider={dataProvider}
-    layout={Mylayout}
-    theme={mytheme}
-    requireAuth
-  >
-    <Resource
-      name="users"
-      list={UserList}
-      create
-      show={UserShow}
+  <BrowserRouter>
+    <Admin
+      loginPage={MyLoginPage}
+      title="React Tutorial Admin"
+      dashboard={Dashboard}
+      authProvider={authProvider}
+      dataProvider={dataProvider}
+      layout={Mylayout}
+      theme={mytheme}
       requireAuth
-      recordRepresentation="name"
-    />
-    {/* {console.log(dataProvider.getOne("users", { id: auth.currentUser.uid }).then(response => console.log(response.data.id)))} */}
-    <CustomRoutes>
-      <Route path="/users/create" element={<UserCreate />} />
-      <Route path="/users/update" element={<UserUpdate />} />
-      {/* <Route
+    >
+      <Resource
+        name="users"
+        list={UserList}
+        create
+        show={UserShow}
+        requireAuth
+        recordRepresentation="name"
+      />
+      {/* {console.log(dataProvider.getOne("users", { id: auth.currentUser.uid }).then(response => console.log(response.data.id)))} */}
+      <CustomRoutes>
+        <Route path="/users/create" element={<UserCreate />} />
+        <Route path="/users/update" element={<UserUpdate />} />
+        {/* <Route
         path="/users/list"
         element={<Profile inputs={userInputs} title="Add New User" />}
       /> */}
-      {/* <Route
+        {/* <Route
         path="/users/create"
         element={<Profile inputs={userInputs} title="Add New User" />}
       /> */}
-      <Route path="/users/create" element={<UserCreate />} />
-      <Route path="/my-profile" element={<UserUpdate />} />
-    </CustomRoutes>
-    <Resource
-      name="businesses"
-      list={BusinessList}
-      create={BusinessCreate}
-      edit={BusinessEdit}
-      show={BusinessShow}
-      icon={BusinessIcon}
-      recordRepresentation="name"
-      requireAuth
-    />
-    <Resource
-      name="customers"
-      list={CustomerList}
-      create={CustomerCreate}
-      edit={CustomerEdit}
-      show={CustomerShow}
-      icon={CustomerIcon}
-      recordRepresentation="name"
-      requireAuth
-    />
-  </Admin>
+        <Route path="/users/create" element={<UserCreate />} />
+        <Route path="/my-profile" element={<UserUpdate />} />
+      </CustomRoutes>
+      <Resource
+        name="businesses"
+        list={BusinessList}
+        create={BusinessCreate}
+        edit={BusinessEdit}
+        show={BusinessShow}
+        icon={BusinessIcon}
+        recordRepresentation="name"
+        requireAuth
+      />
+      <Resource
+        name="customers"
+        list={CustomerList}
+        create={CustomerCreate}
+        edit={CustomerEdit}
+        show={CustomerShow}
+        icon={CustomerIcon}
+        recordRepresentation="name"
+        requireAuth
+      />
+    </Admin>
+  </BrowserRouter>
 );
 export default App;
