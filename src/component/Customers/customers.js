@@ -216,7 +216,19 @@ const CustomerList = () => {
         />
       ) : ( */}
       {/* {data.map((record) => ( */}
-      <Datagrid rowClick="edit">
+      <Datagrid
+        rowClick="edit"
+        sx={{
+          backgroundColor: "#fff",
+          "& .RaDatagrid-headerCell": {
+            textAlign: "center",
+            backgroundColor: "#efefef",
+          },
+          "& .RaDatagrid-rowCell": {
+            textAlign: "center",
+          },
+        }}
+      >
         <TextField source="name" />
         <TextField source="address" />
         <ShowButton basePath="/customers" />

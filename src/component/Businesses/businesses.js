@@ -27,7 +27,18 @@ const BusinessList = () => {
           
         />
       ) : ( */}
-      <Datagrid>
+      <Datagrid
+        sx={{
+          backgroundColor: "#fff",
+          "& .RaDatagrid-headerCell": {
+            textAlign: "center",
+            backgroundColor: "#efefef",
+          },
+          "& .RaDatagrid-rowCell": {
+            textAlign: "center",
+          },
+        }}
+      >
         <TextField source="name" />
         <DateField source="subscriptionEndDate" />
         <ShowButton basePath="/businesses" />

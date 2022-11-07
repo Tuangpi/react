@@ -21,7 +21,18 @@ import {
 const UserList = (props) => {
   return (
     <List {...props}>
-      <Datagrid>
+      <Datagrid
+        sx={{
+          backgroundColor: "#fff",
+          "& .RaDatagrid-headerCell": {
+            textAlign: "center",
+            backgroundColor: "#efefef",
+          },
+          "& .RaDatagrid-rowCell": {
+            textAlign: "center",
+          },
+        }}
+      >
         <ReferenceField
           label="Business Name"
           source="name"

@@ -112,7 +112,7 @@ const RecordPanel = () => {
           </div>
           <div>
             <table>
-              <thead>
+              <thead style={{ textAlign: "center" }}>
                 <th className="light">Status</th>
                 <th className="light">Amount</th>
               </thead>
@@ -163,7 +163,19 @@ export const CustomerRecordList = () => {
             expand={RecordsPanel}
           />
         ) : ( */}
-      <Datagrid expand={RecordPanel}>
+      <Datagrid
+        expand={RecordPanel}
+        sx={{
+          backgroundColor: "#fff",
+          "& .RaDatagrid-headerCell": {
+            textAlign: "center",
+            backgroundColor: "#efefef",
+          },
+          "& .RaDatagrid-rowCell": {
+            textAlign: "center",
+          },
+        }}
+      >
         <ReferenceField
           label="Customer Name"
           source="customer_id"

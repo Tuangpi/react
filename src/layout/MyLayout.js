@@ -17,6 +17,8 @@ import Avatar from "@mui/material/Avatar";
 import SettingsIcon from "@mui/icons-material/Settings";
 import RecordIcon from "@mui/icons-material/List";
 import InvoiceIcon from "@mui/icons-material/LibraryBooks";
+import { auth } from "../firebase";
+import { MyError } from "../component/ErrorPage/error";
 
 const darkTheme = createTheme({
   palette: { mode: "dark" },
@@ -46,8 +48,19 @@ const MyMenu = () => (
     <Menu.DashboardItem />
     <Menu.Item to="/users" primaryText="Users" leftIcon={<VerifiedUser />} />
     <Menu.Item to="/customers" primaryText="Customers" leftIcon={<People />} />
-    <Menu.Item to="/records" primaryText="Records" leftIcon={<RecordIcon />} />
-    <Menu.Item to="/invoices" primaryText="Invoices" leftIcon={<InvoiceIcon />} />
+    <Menu.Item
+      to={{
+        pathname: "/records",
+        search: `filter=${JSON.stringify({ user_id: auth.currentUser.uid })}`,
+      }}
+      primaryText="Records"
+      leftIcon={<RecordIcon />}
+    />
+    <Menu.Item
+      to="/invoices"
+      primaryText="Invoices"
+      leftIcon={<InvoiceIcon />}
+    />
     <Menu.Item to="/businesses" primaryText="Business" leftIcon={<Label />} />
   </Menu>
 );
@@ -93,7 +106,7 @@ const MyAppBar = (props) => (
     <Box flex="1">
       <Typography variant="h6" id="react-admin-title"></Typography>
     </Box>
-    <ToggleThemeButton lightTheme={mytheme} darkTheme={darkTheme} />
+    {/* <ToggleThemeButton lightTheme={mytheme} darkTheme={darkTheme} /> */}
   </AppBar>
 );
 
@@ -101,13 +114,14 @@ const MySidebar = (props) => (
   <Sidebar
     sx={{
       backgroundColor: "#f1f1f1",
+      width: 230,
     }}
     {...props}
   />
 );
 
 const MyLayout = (props) => (
-  <Layout {...props} appBar={MyAppBar} menu={MyMenu} sidebar={MySidebar} />
+  <Layout {...props} appBar={MyAppBar} menu={MyMenu} sidebar={MySidebar} error={MyError} />
 );
 
 export default MyLayout;

@@ -20,7 +20,19 @@ export const InvoiceList = () => {
             
           />
         ) : ( */}
-      <Datagrid rowClick="show">
+      <Datagrid
+        rowClick="show"
+        sx={{
+          backgroundColor: "#fff",
+          "& .RaDatagrid-headerCell": {
+            textAlign: "center",
+            backgroundColor: "#efefef",
+          },
+          "& .RaDatagrid-rowCell": {
+            textAlign: "center",
+          },
+        }}
+      >
         <DateField source="invoice_date" label="Generate Date" />
         <TextField source="month" label="Invoice For" />
         <TextField source="paid_customer" label="Paid" />
