@@ -21,6 +21,7 @@ import {
   SelectInput,
   BooleanInput,
   NumberInput,
+  useRecordContext,
 } from "react-admin";
 import * as React from "react";
 import { auth } from "../../firebase";
@@ -79,6 +80,55 @@ const customerFilters = [
   // <TextInput label="Search" source="month" alwaysOn />,
   // <TextInput label="Title" source="title" defaultValue="Hello, World!" />,
 ];
+
+const RecordPanel = () => {
+  const record = useRecordContext();
+  return (
+    <>
+      <div className="my-container">
+        <div className="wrapper">
+          <div className="top-header">
+            <div className="business-address">
+              <div className="bold">Business Name</div>
+              <div>Address</div>
+              <div>Address</div>
+            </div>
+            <div className="bold">Invoice Number</div>
+          </div>
+          <div className="middle-header">
+            <div>
+              <div className="date-container">
+                <div className="bold">Date</div>
+                <div>today date</div>
+              </div>
+            </div>
+            <div>
+              <div className="date-container">
+                <div className="bold">Invoice For {record.month}</div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <th className="light">Status</th>
+                <th className="light">Amount</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{record.paid == true ? "Paid" : "Unpaid"}</td>
+                  <td>{record.amount}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
 export const CustomerRecordList = () => {
   const months = [
     "January",
@@ -112,7 +162,7 @@ export const CustomerRecordList = () => {
             expand={RecordsPanel}
           />
         ) : ( */}
-      <Datagrid>
+      <Datagrid expand={RecordPanel}>
         <ReferenceField
           label="Customer Name"
           source="customer_id"

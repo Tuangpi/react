@@ -22,6 +22,7 @@ import {
   DeleteButton,
   ReferenceField,
   ReferenceInput,
+  useRecordContext,
 } from "react-admin";
 import { Favorite } from "@mui/icons-material";
 import { auth, db } from "../../firebase";
@@ -207,7 +208,7 @@ const CustomerList = () => {
   // return <>{display}</>;
   return (
     <List>
-       {/* aside={<CustomerFilterSideBar />} */}
+      {/* aside={<CustomerFilterSideBar />} */}
       {/* {isSmall ? (
         <SimpleList
           primaryText={(record) => record.name}
@@ -278,13 +279,13 @@ const CustomerShow = () => (
 //       },
 //     },
 //     {
-      // onSuccess: (data) => {
-      //   redirect("/customers");
-      //   notify("Customer Create Successfully !", {
-      //     type: "success",
-      //     undoable: false,
-      //   });
-      // },
+// onSuccess: (data) => {
+//   redirect("/customers");
+//   notify("Customer Create Successfully !", {
+//     type: "success",
+//     undoable: false,
+//   });
+// },
 //       onError: (error) => {
 //         notify(`Customer create error: ${error.message}`, {
 //           type: "warning",
