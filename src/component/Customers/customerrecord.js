@@ -83,6 +83,7 @@ const customerFilters = [
 
 const RecordPanel = () => {
   const record = useRecordContext();
+  const today = new Date().toLocaleDateString();
   return (
     <>
       <div className="my-container">
@@ -99,7 +100,7 @@ const RecordPanel = () => {
             <div>
               <div className="date-container">
                 <div className="bold">Date</div>
-                <div>today date</div>
+                <div>{today}</div>
               </div>
             </div>
             <div>

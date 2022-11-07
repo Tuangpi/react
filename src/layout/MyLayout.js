@@ -45,9 +45,9 @@ const MyMenu = () => (
   <Menu>
     <Menu.DashboardItem />
     <Menu.Item to="/users" primaryText="Users" leftIcon={<VerifiedUser />} />
+    <Menu.Item to="/customers" primaryText="Customers" leftIcon={<People />} />
     <Menu.Item to="/records" primaryText="Records" leftIcon={<RecordIcon />} />
     <Menu.Item to="/invoices" primaryText="Invoices" leftIcon={<InvoiceIcon />} />
-    <Menu.Item to="/customers" primaryText="Customers" leftIcon={<People />} />
     <Menu.Item to="/businesses" primaryText="Business" leftIcon={<Label />} />
   </Menu>
 );
@@ -100,7 +100,7 @@ const MyAppBar = (props) => (
 const MySidebar = (props) => (
   <Sidebar
     sx={{
-      backgroundColor: "#d9d9d9",
+      backgroundColor: "#f1f1f1",
     }}
     {...props}
   />
