@@ -1,0 +1,51 @@
+
+  .Grid__Container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+  
+  .Stat__Card {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(99, 99, 99, 0.15);
+  }
+  .Stat__Card_1{
+    background-color: rgb(68, 68, 68);
+  }
+  .Stat__Card_2{
+    background-color: rgb(52, 77, 69);
+  }
+  .Stat__Card_3{
+    background-color: rgb(84, 69, 119);
+  }
+  .Stat__Card_4{
+    background-color: rgb(187, 65, 126);
+  }
+  .Stat__Card_5{
+    background-color: rgb(176, 76, 196);
+  }
+  .Stat__Card_6{
+    background-color: rgb(83, 197, 121);
+  }
+  
+  .Stat__Container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Stat__Title {
+    color: #cacaca;
+  }
+  
+  .Stat__Content {
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  
+  @media (min-width: 768px) {
+    .Grid__Container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }

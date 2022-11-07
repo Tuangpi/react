@@ -19,7 +19,7 @@ import {
 const BusinessList = () => {
   // const isSmall = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   return (
-    <List>
+    <List queryOptions={{ businesses: { name: "IT books" } }}>
       {/* {isSmall ? (
         <SimpleList
           primaryText={(record) => record.name}
@@ -27,13 +27,13 @@ const BusinessList = () => {
           
         />
       ) : ( */}
-        <Datagrid>
-          <TextField source="name" />
-          <DateField source="subscriptionEndDate" />
-          <ShowButton basePath="/businesses" />
-          <EditButton basePath="/businesses" />
-          <DeleteButton basePath="/businesses" />
-        </Datagrid>
+      <Datagrid>
+        <TextField source="name" />
+        <DateField source="subscriptionEndDate" />
+        <ShowButton basePath="/businesses" />
+        <EditButton basePath="/businesses" />
+        <DeleteButton basePath="/businesses" />
+      </Datagrid>
       {/* )} */}
     </List>
   );
@@ -48,7 +48,7 @@ const BusinessShow = () => (
   </Show>
 );
 const BusinessCreate = (props) => (
-  <Create title="Create a Business" {...props}>
+  <Create title="Create a Business" {...props} redirect="list">
     <SimpleForm>
       <TextInput source="name" />
       <DateInput source="subscriptionEndDate" />

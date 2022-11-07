@@ -1,0 +1,43 @@
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Add some styling */
+
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    height: 40px;
+    margin: 5px 0px;
+    padding: 0px 24px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #333;
+    background-color: rgb(253, 253, 253);
+    background-image: none;
+    border: 1px solid #cccccc;
+    -ms-word-break: normal;
+    word-break: normal;
+    cursor: pointer;
+}
+
+.my-button {
+    /* background-image: url(./settings_suggest_FILL0_wght200_GRAD0_opsz24.svg); */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #009688;
+    /* Green */
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.my-button:hover {
+    background-color: #59a7a0;
+}

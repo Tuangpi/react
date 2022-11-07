@@ -23,6 +23,15 @@ import CustomerIcon from "@mui/icons-material/VerifiedUser";
 import BusinessIcon from "@mui/icons-material/List";
 import { blueGrey, teal, pink } from "@mui/material/colors";
 import { BrowserRouter } from "react-router-dom/dist";
+import {
+  CustomerRecordCreate,
+  CustomerRecordEdit,
+  CustomerRecordList,
+  CustomerRecordShow,
+} from "./component/Customers/customerrecord";
+import { InvoiceList } from "./component/Invoices/InvoiceList";
+import { InvoiceCreate } from "./component/Invoices/InvoiceCreate";
+import { InvoiceShow } from "./component/Invoices/InvoiceShow";
 
 const mytheme = {
   palette: {
@@ -71,20 +80,11 @@ const App = () => (
         requireAuth
         recordRepresentation="name"
       />
-      {/* {console.log(dataProvider.getOne("users", { id: auth.currentUser.uid }).then(response => console.log(response.data.id)))} */}
       <CustomRoutes>
-        <Route path="/users/create" element={<UserCreate />} />
-        <Route path="/users/update" element={<UserUpdate />} />
-        {/* <Route
-        path="/users/list"
-        element={<Profile inputs={userInputs} title="Add New User" />}
-      /> */}
-        {/* <Route
-        path="/users/create"
-        element={<Profile inputs={userInputs} title="Add New User" />}
-      /> */}
-        <Route path="/users/create" element={<UserCreate />} />
         <Route path="/my-profile" element={<UserUpdate />} />
+        <Route path="/users/create" element={<UserCreate />} />
+        {/* <Route path="/invoices/create" element={<InvoiceCreate />} /> */}
+        {/* <Route path="/customers/create" element={<CustomerCreate />} /> */}
       </CustomRoutes>
       <Resource
         name="businesses"
@@ -93,6 +93,22 @@ const App = () => (
         edit={BusinessEdit}
         show={BusinessShow}
         icon={BusinessIcon}
+        recordRepresentation="name"
+        requireAuth
+      />
+      <Resource
+        name="records"
+        // create={CustomerRecordCreate}
+        edit={CustomerRecordEdit}
+        list={CustomerRecordList}
+        show={CustomerRecordShow}
+      />
+      <Resource
+        name="invoices"
+        list={InvoiceList}
+        create={InvoiceCreate}
+        show={InvoiceShow}
+        icon={CustomerIcon}
         recordRepresentation="name"
         requireAuth
       />

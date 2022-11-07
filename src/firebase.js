@@ -7,12 +7,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 const config = {
-  apiKey: "AIzaSyDZK5r2gQyOP0lLurl_ChOGQjU03v6ybSY",
-  authDomain: "react-tutorial-df3dd.firebaseapp.com",
-  databaseURL: "react-tutorial-df3dd.firebasedatabase.app",
-  projectId: "react-tutorial-df3dd",
-  storageBucket: "react-tutorial-df3dd.appspot.com",
-  messagingSenderId: "300345005285",
+  apiKey: "AIzaSyDrULOx0Y934AYED63_afyilaQ8ZTTyrxo",
+  authDomain: "react-tuto-e4657.firebaseapp.com",
+  projectId: "react-tuto-e4657",
+  storageBucket: "react-tuto-e4657.appspot.com",
+  messagingSenderId: "632818805785",
+  appId: "1:632818805785:web:4fc1d27c8a89802ec5ce88",
+  databaseURL: "react-tuto-e4657.firebasedatabase.app",
 };
 const authProvider = FirebaseAuthProvider(config);
 const dataProvider = FirebaseDataProvider(config);

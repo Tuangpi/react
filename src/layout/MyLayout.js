@@ -15,6 +15,8 @@ import { teal, pink, blueGrey } from "@mui/material/colors";
 import { VerifiedUser, People, Label } from "@mui/icons-material";
 import Avatar from "@mui/material/Avatar";
 import SettingsIcon from "@mui/icons-material/Settings";
+import RecordIcon from "@mui/icons-material/List";
+import InvoiceIcon from "@mui/icons-material/LibraryBooks";
 
 const darkTheme = createTheme({
   palette: { mode: "dark" },
@@ -43,6 +45,8 @@ const MyMenu = () => (
   <Menu>
     <Menu.DashboardItem />
     <Menu.Item to="/users" primaryText="Users" leftIcon={<VerifiedUser />} />
+    <Menu.Item to="/records" primaryText="Records" leftIcon={<RecordIcon />} />
+    <Menu.Item to="/invoices" primaryText="Invoices" leftIcon={<InvoiceIcon />} />
     <Menu.Item to="/customers" primaryText="Customers" leftIcon={<People />} />
     <Menu.Item to="/businesses" primaryText="Business" leftIcon={<Label />} />
   </Menu>

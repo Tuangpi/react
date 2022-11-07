@@ -1,0 +1,80 @@
+.my-container,
+.container-show {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+    box-shadow: 5px 5px 5px rgba(184, 179, 179, 0.5);
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+
+    .wrapper {
+        width: 95%;
+        margin: 20px auto 15px auto;
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            .business-address {
+                font-weight: 200;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .middle-header {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+
+            .date-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.container-show {
+    margin-top: 20px;
+    margin-bottom: 10rem;
+}
+
+.my-container {
+    margin: auto;
+}
+
+.bold {
+    font-weight: 700;
+    text-align: center;
+}
+
+.light {
+    font-weight: 500;
+}
+
+table {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+
+    thead {
+        th {
+            border-bottom: 1px solid rgb(175, 175, 175);
+        }
+    }
+
+    tbody {
+        text-align: center;
+
+        td {
+            border-bottom: 1px solid rgb(180, 179, 179);
+        }
+    }
+}
