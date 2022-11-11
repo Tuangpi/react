@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { db, auth, storage } from "../../firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, collection, getDocs } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
@@ -11,6 +11,7 @@ export const UserCreate = () => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [per, setPerc] = useState(null);
+  const [business, setBusiness] = useState();
   const navigate = useNavigate();
   useEffect(() => {
     const uploadFile = () => {
@@ -50,6 +51,23 @@ export const UserCreate = () => {
     };
     file && uploadFile();
   }, [file]);
+
+  useEffect(() => {
+    const getBusiness = async () => {
+      const list = [];
+      try {
+        const querySnapshot = await getDocs(collection(db, "businesses"));
+        querySnapshot.forEach((doc) => {
+          list.push(doc.data());
+        });
+      } catch (error) {
+        console.log(error);
+      }
+      setBusiness(list);
+    };
+    getBusiness();
+    console.log(business);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

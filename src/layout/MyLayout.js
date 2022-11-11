@@ -19,10 +19,11 @@ import RecordIcon from "@mui/icons-material/List";
 import InvoiceIcon from "@mui/icons-material/LibraryBooks";
 import { auth } from "../firebase";
 import { MyError } from "../component/ErrorPage/error";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
-const darkTheme = createTheme({
+const darkTheme = {
   palette: { mode: "dark" },
-});
+};
 const mytheme = {
   palette: {
     primary: teal,
@@ -109,19 +110,44 @@ const MyAppBar = (props) => (
     {/* <ToggleThemeButton lightTheme={mytheme} darkTheme={darkTheme} /> */}
   </AppBar>
 );
-
-const MySidebar = (props) => (
-  <Sidebar
-    sx={{
-      backgroundColor: "#f1f1f1",
-      width: 230,
-    }}
-    {...props}
-  />
-);
+{
+  /* <Sidebar
+        sx={{
+          backgroundColor: "#f1f1f1",
+        }}
+        {...props}
+      /> */
+}
+const MySidebar = (props) => {
+  const isSmall = useMediaQuery("(max-width:600px)");
+  return (
+    <>
+      {isSmall ? (
+        <div>
+          <div>Home</div>
+          <div>Customers</div>
+          <div>Profile</div>
+        </div>
+      ) : (
+        <Sidebar
+          sx={{
+            backgroundColor: "#f1f1f1",
+          }}
+          {...props}
+        />
+      )}
+    </>
+  );
+};
 
 const MyLayout = (props) => (
-  <Layout {...props} appBar={MyAppBar} menu={MyMenu} sidebar={MySidebar} error={MyError} />
+  <Layout
+    {...props}
+    appBar={MyAppBar}
+    menu={MyMenu}
+    sidebar={MySidebar}
+    error={MyError}
+  />
 );
 
 export default MyLayout;

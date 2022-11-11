@@ -22,7 +22,7 @@ import Mylayout from "./layout/MyLayout";
 import CustomerIcon from "@mui/icons-material/VerifiedUser";
 import BusinessIcon from "@mui/icons-material/List";
 import { blueGrey, teal, pink } from "@mui/material/colors";
-import { BrowserRouter } from "react-router-dom/dist";
+import { BrowserRouter, Routes } from "react-router-dom/dist";
 import {
   CustomerRecordCreate,
   CustomerRecordEdit,
@@ -32,6 +32,7 @@ import {
 import { InvoiceList } from "./component/Invoices/InvoiceList";
 import { InvoiceCreate } from "./component/Invoices/InvoiceCreate";
 import { InvoiceShow } from "./component/Invoices/InvoiceShow";
+import FixedBottomNavigation from "./ButtomNav";
 
 const mytheme = {
   palette: {
@@ -83,6 +84,7 @@ const App = () => (
       <CustomRoutes>
         <Route path="/my-profile" element={<UserUpdate />} />
         <Route path="/users/create" element={<UserCreate />} />
+        {/* <Route path="/" element={<FixedBottomNavigation />} /> */}
         {/* <Route path="/invoices/create" element={<InvoiceCreate />} /> */}
         {/* <Route path="/customers/create" element={<CustomerCreate />} /> */}
       </CustomRoutes>
